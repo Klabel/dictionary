@@ -11,7 +11,7 @@ def fill_dictionary(words):
         date_now = datetime.now()
         eng_word = input('введите слово на ')
         if eng_word in words:
-            print('слово 1есть в словаре ')
+            print('слово есть в словаре ')
             continue
         rus_word = input('введите перевод ')
         words[eng_word] = rus_word
