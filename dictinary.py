@@ -4,12 +4,13 @@ from datetime import datetime
 
 from prob import load_data
 
+
 def fill_dictionary(words):
     more = '1'
     while more == "1":
         print('вводим новые слова в словарь')
         date_now = datetime.now()
-        eng_word = input('введите слово на ')
+        eng_word = input('введите слово на изучаемом языке ')
         if eng_word in words:
             print('слово есть в словаре ')
             continue
@@ -21,33 +22,32 @@ def fill_dictionary(words):
         w.writerow([eng_word, rus_word, date_now])
         dict_file.close()
 
+
 words = load_data()
 
-mode = input('вводим словарик - y, no - нафиг ')
+mode = input('пополнить словарик? да - y, нет - no ')
 if mode == 'y':
     fill_dictionary(words)
 
-
-
-
 datetime.today()
-
 
 print('сейчас проверим слова')
 more = '1'
 while more == '1':
-    key, trans_value = random.choice(list(words.items()))
-    print('введите перевод слова {word}'.format(word=key))
+    word_with_translation = list(random.choice(list(words.items())))  # получаем список из ключа и значения
+    random.shuffle(word_with_translation)  # перемешиваем список
+    word, translation = word_with_translation  # присваиваем список строчкой выше (распаковка списка)
+    print('введите перевод слова {word}'.format(word=word))
     input_value = input('введите перевод ')
-    if input_value == trans_value:
+    if input_value == translation:
         print('зер гуд')
     else:
-        print('учи дальше')
+        print('правильно - ', translation, 'учи дальше')
 
-    more = input('еще слово или спать пойдешь? 1-да, 0-нет')
+    more = input('еще? 1-да, 0-нет')
 
-# дата ввода слов.
-# проверка на повторы
-# режим проверки слов.
-# радомная проверка слов
-# проверить 5 слов перед вводом слов
+    # дата ввода слов.
+    # проверка на повторы
+    # режим проверки слов.
+    # радомная проверка слов
+    # проверить 5 слов перед вводом слов
