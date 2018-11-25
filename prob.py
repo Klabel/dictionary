@@ -2,10 +2,9 @@ import csv
 
 import os
 
-
 def load_data():
     data = {}
-    file_name = 'dict1.csv'
+    file_name = 'dict.csv'
     if not os.path.isfile(file_name):
         f = open(file_name, 'w')
         f.close()
