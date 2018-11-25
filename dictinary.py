@@ -28,7 +28,9 @@ words = load_data()
 mode = input('пополнить словарик? да - y, нет - no ')
 if mode == 'y':
     fill_dictionary(words)
-
+if not words:
+    print("нет слов в словаре, надо заполнить слова!")
+    fill_dictionary(words)
 datetime.today()
 
 print('сейчас проверим слова')
