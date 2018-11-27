@@ -10,11 +10,11 @@ def fill_dictionary(words):
     while more == "1":
         print('вводим новые слова в словарь')
         date_now = datetime.now()
-        eng_word = input('введите слово на изучаемом языке ')
+        eng_word = input('введите слово на изучаемом языке ').strip()
         if eng_word in words:
             print('слово есть в словаре ')
             continue
-        rus_word = input('введите перевод ')
+        rus_word = input('введите перевод ').strip()
         words[eng_word] = rus_word
         more = input('ввести еще слово, 1 да, 0 нет.')
         dict_file = open('dict.csv', 'a')
